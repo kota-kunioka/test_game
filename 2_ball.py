@@ -13,7 +13,9 @@ ball = {
 # ウィンドウの作成 --- (*2)
 win = Tk()
 win.title("ball")
-cv = Canvas(win, width = 600, height = 400)
+cw = 1000
+ch = 600
+cv = Canvas(win, width = cw, height = ch)
 cv.pack()
 
 # 画面を描画する --- (*3)
@@ -23,7 +25,7 @@ def draw_objects():
     cv.create_oval(
         ball["x"] - ball["w"], ball["y"] - ball["w"],
         ball["x"] + ball["w"], ball["y"] + ball["w"],
-        fill="green")
+        fill="blue")
 
 # ボールの移動 --- (*4)
 def move_ball():
@@ -31,11 +33,11 @@ def move_ball():
     bx = ball["x"] + ball["dirx"]
     by = ball["y"] + ball["diry"]
     # 上左右の壁に当たった？
-    if bx < 0 or bx > 600: ball["dirx"] *= -1
-    if by < 0 or by > 400: ball["diry"] *= -1
+    if bx < 0 or bx > cw: ball["dirx"] *= -1
+    if by < 0 or by > ch: ball["diry"] *= -1
     # 移動内容を反映
-    if 0 <= bx <= 600: ball["x"] = bx
-    if 0 <= by <= 400: ball["y"] = by
+    if 0 <= bx <= cw: ball["x"] = bx
+    if 0 <= by <= ch: ball["y"] = by
 
 # ゲームループ --- (*5)
 def game_loop():
