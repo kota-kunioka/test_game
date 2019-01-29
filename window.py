@@ -5,7 +5,7 @@ from pygame.locals import *
 import sys
  
 SCREEN_SIZE = (640, 480)  # 画面サイズ
- 
+
 # Pygameを初期化
 pygame.init()
 # SCREEN_SIZEの画面を作成
